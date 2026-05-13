@@ -15,7 +15,7 @@ st.markdown("""
 @import url('https://fonts.googleapis.com/css2?family=Sora:wght@700;800&family=DM+Sans:wght@400;500&display=swap');
 .page-title {
     font-family: 'Sora', sans-serif; font-size: 2.6rem; font-weight: 800;
-    color: #FFFFFF; letter-spacing: -0.03em; line-height: 1; margin-bottom: 0.4rem;
+    color: #FFFFFF; letter-spacing: -0.03em; line-height: 1.25; margin-bottom: 0.4rem;
 }
 .page-subtitle {
     font-size: 0.85rem; color: #6B7A99; letter-spacing: 0.12em;
@@ -55,27 +55,33 @@ st.markdown("""
 
 col1, col2 = st.columns(2, gap="large")
 with col1:
-    st.markdown("""
-    <div class="nav-card blue">
-        <div class="nc-icon">📈</div>
-        <div class="nc-title">Attendance Forecast</div>
-        <div class="nc-desc">
-            Prakiraan tingkat kehadiran 30 hari kerja ke depan menggunakan model ML.
-            Identifikasi hari berisiko rendah, kalender visual, dan tren mingguan.
+    with st.container(border=False):
+        st.markdown("""
+        <div class="nav-card blue">
+            <div class="nc-icon">📈</div>
+            <div class="nc-title">Attendance Forecast</div>
+            <div class="nc-desc">
+                Prakiraan tingkat kehadiran 30 hari kerja ke depan menggunakan model ML.
+                Identifikasi hari berisiko rendah, kalender visual, dan tren mingguan.
+            </div>
         </div>
-        <div class="nc-hint">→ Klik "Attendance Forecast" di sidebar kiri</div>
-    </div>
-    """, unsafe_allow_html=True)
+        """, unsafe_allow_html=True)
+
+        if st.button("Buka Attendance Forecast", use_container_width=True):
+            st.switch_page("pages/1_Attendance_Forecast.py")
 
 with col2:
-    st.markdown("""
-    <div class="nav-card purple">
-        <div class="nc-icon">🕐</div>
-        <div class="nc-title">Late Analisis Karyawan</div>
-        <div class="nc-desc">
-            Ranking karyawan berdasarkan risk score keterlambatan. Tren per divisi,
-            heatmap bulanan, dan forecast probabilitas terlambat per individu.
+    with st.container(border=False):
+        st.markdown("""
+        <div class="nav-card purple">
+            <div class="nc-icon">🕐</div>
+            <div class="nc-title">Late Analisis Karyawan</div>
+            <div class="nc-desc">
+                Ranking karyawan berdasarkan risk score keterlambatan. Tren per divisi,
+                heatmap bulanan, dan forecast probabilitas terlambat per individu.
+            </div>
         </div>
-        <div class="nc-hint">→ Klik "Late Analisis Karyawan" di sidebar kiri</div>
-    </div>
-    """, unsafe_allow_html=True)
+        """, unsafe_allow_html=True)
+
+        if st.button("Buka Late Analisis Karyawan", use_container_width=True):
+            st.switch_page("pages/2_Late_Analisis_Karyawan.py")
