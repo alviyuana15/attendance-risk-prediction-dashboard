@@ -2,6 +2,19 @@
 import streamlit as st
 from lib.ui import apply_theme
 
+# ✅ 1. Google Analytics (PALING ATAS)
+st.components.v1.html("""
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'G-802MRDWF01');
+</script>
+""", height=0)
+
 st.set_page_config(
     page_title="HR Analytics Dashboard",
     page_icon="📊",
@@ -68,6 +81,8 @@ with col1:
         """, unsafe_allow_html=True)
 
         if st.button("Buka Attendance Forecast", use_container_width=True):
+            print("User clicked Attendance Forecast")
+            st.session_state["last_click"] = "attendance_forecast"
             st.switch_page("pages/1_Attendance_Forecast.py")
 
 with col2:
@@ -84,4 +99,6 @@ with col2:
         """, unsafe_allow_html=True)
 
         if st.button("Buka Late Analisis Karyawan", use_container_width=True):
+            print("User clicked Late Analysis")
+            st.session_state["last_click"] = "late_analysis"
             st.switch_page("pages/2_Late_Analisis_Karyawan.py")
