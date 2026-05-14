@@ -2,10 +2,10 @@
 import streamlit as st
 from lib.ui import apply_theme
 
-# ✅ 1. Google Analytics (PALING ATAS)
+# ✅ 1. Google Analytics 
 st.components.v1.html("""
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-802MRDWF01"></script>
 <script>
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
