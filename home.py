@@ -1,19 +1,6 @@
-# Home.py — landing page, otomatis jadi halaman pertama di navbar Streamlit
 import streamlit as st
+from streamlit_gtag import st_gtag
 from lib.ui import apply_theme
-
-# ✅ 1. Google Analytics 
-st.components.v1.html("""
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-802MRDWF01"></script>
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-
-gtag('config', 'G-802MRDWF01');
-</script>
-""", height=0)
 
 st.set_page_config(
     page_title="HR Analytics Dashboard",
@@ -21,6 +8,14 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded",
 )
+
+st_gtag(
+    gtag_id="G-802MRDWF01",
+    config={
+        "send_page_view": True
+    }
+)
+
 apply_theme()
 
 st.markdown("""
